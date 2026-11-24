@@ -1,0 +1,18 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+# Nextflow
+work/
+results/
+test_results/
+.nextflow/
+.nextflow.log*
+# R
+.Rhistory
+.RData
+.Rproj.user/
+analysis/*_files/
+analysis/*.html
+renv/library/
