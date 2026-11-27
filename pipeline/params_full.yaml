@@ -1,14 +1,16 @@
-# Parametros de nf-core/rnaseq para kras-rnaseq
+# Parametros de nf-core/rnaseq para la corrida completa (kras-rnaseq)
 # Referencia: GENCODE release 50, humano GRCh38
+# Origen: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_50/
+# Copia propia en S3 para no depender de la disponibilidad de EBI
 
-fasta: "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_50/GRCh38.primary_assembly.genome.fa.gz"
-gtf:   "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_50/gencode.v50.basic.annotation.gtf.gz"
+fasta: "s3://kras-rnaseq-201507414770/reference/gencode_v50/GRCh38.primary_assembly.genome.fa.gz"
+gtf:   "s3://kras-rnaseq-201507414770/reference/gencode_v50/gencode.v50.basic.annotation.gtf.gz"
 gencode: true
 
 # Solo Salmon (sin STAR)
 pseudo_aligner: salmon
 skip_alignment: true
 
-# Guardar el indice de Salmon en S3 para no reconstruirlo en la corrida grande
-save_reference: false
+# Reutilizar el indice construido en el piloto
 salmon_index: "s3://kras-rnaseq-201507414770/results-pilot/genome/index/salmon"
+save_reference: false
